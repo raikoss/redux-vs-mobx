@@ -1,25 +1,21 @@
 import React from 'react';
 import { updateName } from './actions';
 import { connect } from 'react-redux';
-import NameForm from '../NameForm';
+import Body from '../Body';
 
 /**
  * The body of the Redux component
  */
 const ReduxInner = ({ name, loading, updateName }) => {
   return (
-    <div style={{ flex: '1 1 auto', border: '1px solid red', textAlign: 'center', margin: 10, padding: 5 }}>
-      <h1>Redux</h1>
-
-      <NameForm onClick={updateName} />
-
-      {loading &&  
-      <p>Loading...</p>
-      }
-      {!loading && name &&
-      <p>My name is {name}, and I love Redux!</p>
-      }
-
+    <div className='inner' id='redux-inner'>
+      <Body 
+        title='Redux'
+        name={name}
+        loading={loading}
+        onClick={updateName}
+        nameText={`My name is ${name}, and I love Redux!`}
+      />
     </div>
   )
 }

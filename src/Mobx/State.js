@@ -3,7 +3,6 @@ import { observable, action, decorate } from 'mobx';
 export default class MobxState {
   name = '';
   loading = false;
-  error = null;
 
   // An action to update the name
   updateName = name => {
@@ -20,7 +19,6 @@ export default class MobxState {
 decorate(MobxState, {
   name: observable,
   loading: observable,
-  error: observable, 
   updateName: action
 });
 

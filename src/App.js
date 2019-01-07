@@ -6,7 +6,7 @@ import Mobx from './Mobx/Mobx';
 class App extends Component {
   render() {
     return (
-      <div style={{ display: 'flex', padding: 20 }}>
+      <div className='main'>
         <Redux />
         <Mobx />
       </div>
