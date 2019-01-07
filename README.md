@@ -1,5 +1,14 @@
 Can't really be bothered to make a proper readme at this point tbh
 
+Packages used: 
+
+- [redux](https://redux.js.org)
+- [react-redux](https://react-redux.js.org)
+- [redux-thunk](https://github.com/reduxjs/redux-thunk)
+- [mobx](https://mobx.js.org/)
+- [mobx-react](https://github.com/mobxjs/mobx-react)
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
