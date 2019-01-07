@@ -1,29 +1,27 @@
 import React from 'react';
 import { observer } from 'mobx-react';
+import NameForm from '../NameForm';
 
 /**
  * The body of the Mobx component
  */
-class MobxInner extends React.Component {
-  componentDidMount() {
-    this.props.store.updateName('DannyBoy');
-  }
+const MobxInner = ({ store }) => {
+  const { name, loading, updateName } = store;
+    
+  return (
+    <div style={{ flex: '1 1 auto', border: '1px solid blue', textAlign: 'center', margin: 10, padding: 5 }}>
+      <h1>Mobx</h1>
 
-  render() {
-    const { name, loading } = this.props.store;
-    
-    return (
-      <div style={{ flex: '1 1 auto', border: '1px solid blue', textAlign: 'center' }}>
-        <h1>Mobx</h1>
-    
-        {loading ? 
-        <span>Loading...</span>
-        :
-        <span>And my name is {name}, and I like Mobx!</span>
-        }
-      </div>  
-    )
-  }
+      <NameForm onClick={name => updateName(name)} />
+  
+      {loading &&  
+      <p>Loading...</p>
+      }
+      {!loading && name &&
+      <p>And my name is {name}, and I really like Mobx!</p>
+      }
+    </div>  
+  )
 }
 
 export default observer(MobxInner);

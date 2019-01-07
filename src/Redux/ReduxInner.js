@@ -1,29 +1,27 @@
 import React from 'react';
 import { updateName } from './actions';
 import { connect } from 'react-redux';
+import NameForm from '../NameForm';
 
 /**
  * The body of the Redux component
  */
-class ReduxInner extends React.Component {
-  componentDidMount() {
-    this.props.updateName('Daniel');
-  }
+const ReduxInner = ({ name, loading, updateName }) => {
+  return (
+    <div style={{ flex: '1 1 auto', border: '1px solid red', textAlign: 'center', margin: 10, padding: 5 }}>
+      <h1>Redux</h1>
 
-  render() {
-    return (
-      <div style={{ flex: '1 1 auto', border: '1px solid red', textAlign: 'center' }}>
-        <h1>Redux</h1>
+      <NameForm onClick={updateName} />
 
-        {this.props.loading ? 
-        <span>Loading...</span>
-        : 
-        <span>My name is {this.props.name}, and I love Redux!</span>
-        }
-  
-      </div>
-    )
-  }
+      {loading &&  
+      <p>Loading...</p>
+      }
+      {!loading && name &&
+      <p>My name is {name}, and I love Redux!</p>
+      }
+
+    </div>
+  )
 }
 
 // Maps the Redux state to ReduxInner's props
