@@ -26,7 +26,7 @@ class MobxInnerBody extends React.Component {
         {loading ? 
         <span>Loading...</span>
         :
-        <span>And my name is {name}</span>
+        <span>And my name is {name}, and I like Mobx!</span>
         }
       </div>  
     )
